@@ -1,0 +1,25 @@
+
+double szereg_f_exp(double x) {
+	double ret = 1.0;
+	int znak = -1;
+	double ost = 1;
+
+	for (int i = 2; i <DOK; i++) {
+		ost = ost * x / i;
+		ret = ret + znak * ost;
+		znak = -znak;
+	}
+	return ret;
+}
+
+double szereg_f_exp2(double x) {
+
+	double sum = 1.0; // initialize sum of series  
+	int znak = -1;
+	for (int i = DOK - 1; i > 0; --i) {
+		sum = 1 + znak * (x/2) * sum / i;
+		znak = -znak;
+	}
+	
+	return sum;
+}
